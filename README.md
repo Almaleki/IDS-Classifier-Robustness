@@ -10,16 +10,26 @@ They do not generate or validate executable network traffic.
 
 ## Publicly available materials
 
-The repository includes training and evaluation scripts,
-experiment configuration, aggregate results, and the
-original balanced partition's split indices and fitted
-preprocessing object.
+The repository contains the training and evaluation scripts, experiment
+configuration, per-seed metrics, split indices, and fitted preprocessing
+object for the original partition.
 
-Model checkpoints, the prepared balanced CSV, and the
-supplementary grouped-run artifacts are not included.
-Evaluation scripts requiring these artifacts cannot be
-run directly from the repository alone. Readers can
-generate new artifacts through the training workflow below.
+Download the following files from [release v1.0.0](https://github.com/Almaleki/IDS-Classifier-Robustness/releases/tag/v1.0.0):
+
+| File | Contents |
+|---|---|
+| `balanced_dataset_verified.zip` | The exact balanced CSV used for both partitions, with all 971,604 records in the original row order. |
+| `original_checkpoints_20260919_164823_076724.zip` | All 15 original-partition checkpoints for the baseline, FGSM-trained, and PGD-trained models across seeds 42–46. |
+| `grouped_run_20261028_001334_956812.zip` | All 15 grouped-partition checkpoints, grouped split indices, group identifiers, fitted preprocessing object, and per-seed metrics for the primary and Auto-PGD evaluations. |
+
+Before applying either set of split indices, verify the SHA-256 of the
+extracted `multiclass_balanced.csv`:
+
+`55b70c912a14cadd6760d2f7f4874837c4af0c8efacdb2e8b9adac09ea37e21f`
+
+The balanced CSV was derived from [CSE-CIC-IDS2018](https://registry.opendata.aws/cse-cic-ids2018/),
+produced by the Communications Security Establishment and the Canadian
+Institute for Cybersecurity.
 
 ## Dataset preparation
 
